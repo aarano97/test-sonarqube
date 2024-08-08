@@ -7,10 +7,7 @@ on:
       - develop
       - feature/*
   pull_request:
-    branches:
-      - main
-      - develop
-      - feature/*
+    types: [opened, synchronize, reopened]
 
 jobs:
   Send-to-Sonar-Server-InOffice:
