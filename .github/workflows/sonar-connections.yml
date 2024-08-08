@@ -3,14 +3,11 @@ name: SonarQube analysis Server InOffice
 on:
   push:
     branches:
-      - main
+      - master
       - develop
       - feature/*
   pull_request:
-    branches:
-      - main
-      - develop
-      - feature/*
+    types: [opened, synchronize, reopened]
 
 jobs:
   Send-to-Sonar-Server-InOffice:
