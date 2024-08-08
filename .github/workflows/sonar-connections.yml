@@ -7,10 +7,7 @@ on:
       - develop
       - feature/*
   pull_request:
-    branches:
-      - main
-      - develop
-      - feature/*
+    types: [opened, synchronize, reopened]
 
 jobs:
   Send-to-Sonar-Server-InOffice:
@@ -51,7 +48,6 @@ jobs:
             -Dsonar.sources=.
             -Dsonar.host.url=${{ vars.SONAR_HOST_URL }}
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
-            -Dsonar.analysis.mode=preview
             -Dsonar.pullrequest.key=${{ github.event.pull_request.number }}
             -Dsonar.pullrequest.branch=${{ github.head_ref }}
             -Dsonar.pullrequest.base=${{ github.base_ref }}
